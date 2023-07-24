@@ -1,0 +1,17 @@
+services:
+  api:
+    build: ./backend
+    environment:
+      - SECRET_KEY
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api:/api
+    command: bash -c "python manage.py runserver 0.0.0.0:8000"
+
+  web:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/frontend

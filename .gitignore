@@ -1,0 +1,7 @@
+*.csv
+*.txt
+*.mp3
+*.mp4
+Data/
+model/
+node_modules/
