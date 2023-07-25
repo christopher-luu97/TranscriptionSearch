@@ -6,4 +6,5 @@ Data/
 model/
 node_modules/
 backend/backend/config/env.json
-*pptx
+*.pptx
+*.ipynb
