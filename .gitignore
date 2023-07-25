@@ -5,4 +5,4 @@
 Data/
 model/
 node_modules/
-env.json
+backend/backend/config/env.json
