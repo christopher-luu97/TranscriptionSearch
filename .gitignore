@@ -3,8 +3,9 @@
 *.mp3
 *.mp4
 Data/
-model/
+EDA/
 node_modules/
 backend/backend/config/env.json
 *.pptx
 *.ipynb
+models/embeddings/embedding_model
