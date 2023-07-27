@@ -9,3 +9,4 @@ backend/backend/config/env.json
 *.pptx
 *.ipynb
 models/embeddings/embedding_model
+frontend/public/thumbnails/lectures

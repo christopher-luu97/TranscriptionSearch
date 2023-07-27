@@ -1,32 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { cardData } from '../Cards/cardData';
 
-// Define the data for the cards
-const cardData = [
-  {
-    image: 'image1.jpg',
-    description: 'Description 1',
-  },
-  {
-    image: 'image2.jpg',
-    description: 'Description 2',
-  },
-  // Add more card data as needed
-];
+export const Cards: React.FC = () => {
+    const [images, setImages] = useState<string[]>([]);
 
-const Main: React.FC = () => {
-  return (
-    <div className="App">
-      <h1>Card Grid</h1>
-      <div className="card-grid">
-        {cardData.map((card, index) => (
-          <div className="card" key={index}>
-            <img src={card.image} alt={`Card ${index + 1}`} />
-            <p>{card.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default Main;
+    useEffect(() => {
+        // Load the images dynamically
+        Promise.all(
+            cardData.map((card) => import(`../../${card.image}`))
+        ).then((importedImages) => {
+            // Store the image URLs in state once loaded
+            setImages(importedImages.map((image) => image.default));
+        });
+    }, []);
+    return (
+        <div className='card-grid'>
+            {images.map((image, index) => (
+                <div className="card" key={index}>
+                    <img src={image} alt={`Card ${index + 1}`} />
+                    <p>{cardData[index].description}</p>
+                </div>
+            ))}
+        </div>
+    )
+}
