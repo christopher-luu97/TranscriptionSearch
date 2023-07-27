@@ -109,7 +109,6 @@ def test_embedding_api_url_method():
     vb.embedding_api_url("http://example.com")
     assert vb.embedding_api == "http://example.com"
 
-# Mocking the weaviate client
 class MockWeaviateClient:
     def __init__(self):
         self.schema = MockWeaviateSchema()
