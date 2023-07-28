@@ -1,15 +1,17 @@
 import React from 'react';
 import { cardData } from './cardData';
 
-export const Cards: React.FC = () => {
-    console.log('cardData:', cardData); // Log the cardData array
-
+export function Cards(){
     return (
-        <div className='card-grid'>
+        <div className='grid grid-cols-4 gap-4 bg-gray-800'>
             {cardData.map((card, index) => (
-                    <div className="card" key={index}>
-                    <img src={`${process.env.PUBLIC_URL}/${card.image}`} alt={`Card ${index + 1}`} />
-                    <p>{card.description}</p>
+                    <div className="w-48 h-32" key={index}>
+                        <img
+                            src={`${card.image}`}
+                            alt={`Card ${index + 1}`}
+                            className="w-48 h-32" // Set the width and height according to your desired size
+                        />
+                    <p className="text-white">{card.description}</p>
                     </div>
                 ))}
         </div>

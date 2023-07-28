@@ -1,4 +1,3 @@
-# Pytests for the transcription folder containing download.py and transcribe.py
 import os
 import pytest
 from transcription.download import * 

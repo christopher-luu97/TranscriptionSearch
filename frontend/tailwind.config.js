@@ -1,11 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.html",
-    "./src/**/*.js",
-    "./src/**/*.jsx",
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
+    "./src/**/*.{js,jsx,ts,tsx,html}",
+    "./src/components/Cards/*.{js,jsx,ts,tsx,html}"
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {

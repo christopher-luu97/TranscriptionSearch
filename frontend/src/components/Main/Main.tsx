@@ -1,26 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { cardData } from '../Cards/cardData';
+import React from 'react';
+import { Cards } from '../Cards/Cards';
+import { Search } from '../Search/Search';
 
-export const Cards: React.FC = () => {
-    const [images, setImages] = useState<string[]>([]);
-
-    useEffect(() => {
-        // Load the images dynamically
-        Promise.all(
-            cardData.map((card) => import(`../../${card.image}`))
-        ).then((importedImages) => {
-            // Store the image URLs in state once loaded
-            setImages(importedImages.map((image) => image.default));
-        });
-    }, []);
+export const Main: React.FC = () => {
     return (
-        <div className='card-grid'>
-            {images.map((image, index) => (
-                <div className="card" key={index}>
-                    <img src={image} alt={`Card ${index + 1}`} />
-                    <p>{cardData[index].description}</p>
-                </div>
-            ))}
+        <div className="min-h-screen bg-gray-900">
+            <div className="flex items-center justify-center">
+                <h1 className="text-5xl font-bold mb-4 text-white text-center my-10">
+                Search Your Transcripts
+                </h1>
+            </div>
+            <Search></Search>
+            <div className="container mx-auto">
+                    <div className="flex items-center justify-between"></div>
+                        <Cards></Cards>
+            </div>
         </div>
     )
 }
