@@ -10,10 +10,12 @@ export const Main: React.FC = () => {
                 Search Your Transcripts
                 </h1>
             </div>
-            <Search></Search>
             <div className="container mx-auto">
-                    <div className="flex items-center justify-between"></div>
-                        <Cards></Cards>
+                <div className="mb-4">
+                    <Search />
+                </div>
+                <div className="flex items-center justify-between"></div>
+                    <Cards></Cards>
             </div>
         </div>
     )
