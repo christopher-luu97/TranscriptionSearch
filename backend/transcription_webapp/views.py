@@ -7,6 +7,10 @@ from .models import File
 from .serializers import MediaFileSerializer
 import asyncio
 import os
+from django.shortcuts import render
+
+def index(request):
+    return render(request, 'index.html')
 
 @csrf_exempt
 def transcribe(request):

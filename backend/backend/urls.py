@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from transcription_webapp.views import transcribe, download
+from transcription_webapp.views import transcribe, download, index
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -23,6 +23,6 @@ urlpatterns = [
     #path('admin/', admin.site.urls),
     path('backend/transcription_webapp/transcribe/', transcribe, name='transcribe'),
     path('backend/transcription_webapp/download/', download, name='download'),
-
+    re_path(r'^.*$', views.index),  # Catch-all pattern for frontend routes
     #path('', transcribe, name='transcribe'),
 ]

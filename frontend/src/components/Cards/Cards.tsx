@@ -1,5 +1,7 @@
 import React from "react";
 import { cardData } from "./cardData";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import TranscriptionOutput from "../IndividualTranscription/TranscriptionOutput";
 
 export function Cards() {
   return (
