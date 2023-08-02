@@ -4,9 +4,6 @@ import { TranscriptionItem } from "../../common/types";
 interface TranscriptionOutputProps {
   transcriptionData: TranscriptionItem[];
   maxHeight: number;
-  onTranscriptionDataUpdate: (
-    updatedTranscriptionData: TranscriptionItem[]
-  ) => void;
 }
 
 const TranscriptionOutput: React.FC<TranscriptionOutputProps> = ({
@@ -31,7 +28,7 @@ const TranscriptionOutput: React.FC<TranscriptionOutputProps> = ({
               }}
             >
               <span className="text-gray-500">
-                [{item.start_time_hms} &rarr; {item.end_time_hms}]
+                [{item.start_time} &rarr; {item.end_time}]
               </span>
               <p className="mt-2">{item.text}</p>
             </li>

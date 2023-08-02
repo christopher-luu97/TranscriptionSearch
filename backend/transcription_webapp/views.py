@@ -1,21 +1,22 @@
 from django.http import HttpResponseBadRequest, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from .transcribe import Transcribe
-from .download import Download
 from rest_framework import viewsets
 from .models import File
 from .serializers import MediaFileSerializer
 import asyncio
 import os
 from django.shortcuts import render
+import json
+from .query_vector_DB import queryVectorDB
 
 def index(request):
     return render(request, 'index.html')
 
 @csrf_exempt
-def transcribe(request):
+def individual_transcription(request):
     """
-    API to handle transcription service
+    API that retrieves the individual transcfription data from a weaviate instance
+    The weaviate instance is hosted in docker and should have existing schema with data
 
     Args:
         request (file): File object of form data
@@ -23,47 +24,35 @@ def transcribe(request):
     Returns:
         JsonResponse: Formatted JsonResponse object on success
     """
-    if request.method == 'POST' and 'file' in request.FILES:
-        file = request.FILES['file']
-        transcriber = Transcribe()
-
-        # Save the file to the storage and get its ID
-        file_instance = File(file=file)
-        file_instance.save()
-        file_id = file_instance.id
-
-        data = file_instance
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        data = loop.run_until_complete(transcriber.transcribe_file(file))
-
-        # Delete the uploaded media file
-        file_path = file_instance.file.path
-        os.remove(file_path)
-        
-        if data is not None:
-            response_data = {
-                'status': 'success',
-                'message': 'File received and processed successfully',
-                'data': data
-            }
-            return JsonResponse(response_data)
-        else:
-            return HttpResponseBadRequest("Failed to transcribe the file")
-    else:
-        return HttpResponseBadRequest("No file received")
-
-@csrf_exempt
-def download(request):
     if request.method == 'POST':
-        data = request.POST.get('data')
-        fmat = request.POST.get('format')
-        filename = request.POST.get('file_name')
-        downloader = Download()
-        response = downloader.download(fmat, data, filename)
-        return response
+        try:
+            data = json.loads(request.body)
+            title = data.get('title')
+
+            if title is not None:
+                # transcriptions = get_weaviate_data(title) # [{}] format
+                data = title #[{"Example key": "Example Value"}]
+                vector_db_endpoint = "http://localhost:8080"
+                qvb = queryVectorDB(vector_db_endpoint)
+                query = title
+                result = qvb.get_data(query)
+                print(result[0])
+
+                if result is not None:
+                    response_data = {
+                        'status': 'success',
+                        'message': 'File received and processed successfully',
+                        'data': result
+                    }
+                    return JsonResponse(response_data)
+                else:
+                    return HttpResponseBadRequest("Failed to GET the transcription from vector database")
+            else:
+                return HttpResponseBadRequest("No title received")
+        except json.JSONDecodeError:
+            return HttpResponseBadRequest("Invalid JSON data")
     else:
-        return HttpResponseBadRequest("No file received")
+        return HttpResponseBadRequest("Invalid request method")
 
 
 class FileView(viewsets.ModelViewSet):
