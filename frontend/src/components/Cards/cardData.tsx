@@ -1,4 +1,5 @@
 // Define the data for the cards
+import lectureImage from "../../assets/thumbnails/lectures/Lecture 1_ Course Overview + The Shell (2020).jpg";
 
 export interface Card {
   title: string;
@@ -7,6 +8,11 @@ export interface Card {
 }
 
 export const cardData: Card[] = [
+  {
+    title: "Lecture 3: Editors (vim) (2020)",
+    image: lectureImage,
+    description: "test",
+  },
   {
     title: "Lecture 1: Course Overview + The Shell (2020)",
     image:
