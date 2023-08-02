@@ -10,3 +10,4 @@ backend/backend/config/env.json
 *.ipynb
 models/embeddings/embedding_model
 frontend/src/assets/thumbnails/lectures
+*.pyc
