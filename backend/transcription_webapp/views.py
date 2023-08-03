@@ -50,6 +50,49 @@ def individual_transcription(request):
             return HttpResponseBadRequest("Invalid JSON data")
     else:
         return HttpResponseBadRequest("Invalid request method")
+    
+@csrf_exempt
+def all_transcription(request):
+    """
+    API that retrieves the all individual transcription data from a weaviate instance based on natural language query
+    The weaviate instance is hosted in docker and should have existing schema with data
+    Natural language query should call upon a separate docker instance to embed the query to a vector.
+
+    Args:
+        request (file): File object of form data
+
+    Returns:
+        JsonResponse: Formatted JsonResponse object on success
+    """
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            title = data.get('title')
+
+            if title is not None:
+                # transcriptions = get_weaviate_data(title) # [{}] format
+                data = title #[{"Example key": "Example Value"}]
+                vector_db_endpoint = "http://localhost:8080"
+                qvb = queryVectorDB(vector_db_endpoint)
+                query = title
+                result = qvb.get_data_from_title(query)
+                print(result[0])
+
+                if result is not None:
+                    response_data = {
+                        'status': 'success',
+                        'message': 'File received and processed successfully',
+                        'data': result
+                    }
+                    return JsonResponse(response_data)
+                else:
+                    return HttpResponseBadRequest("Failed to GET the transcription from vector database")
+            else:
+                return HttpResponseBadRequest("No title received")
+        except json.JSONDecodeError:
+            return HttpResponseBadRequest("Invalid JSON data")
+    else:
+        return HttpResponseBadRequest("Invalid request method")
 
 
 class FileView(viewsets.ModelViewSet):
