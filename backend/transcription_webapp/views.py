@@ -32,7 +32,7 @@ def individual_transcription(request):
                 vector_db_endpoint = "http://localhost:8080"
                 qvb = queryVectorDB(vector_db_endpoint)
                 query = title
-                result = qvb.get_data(query)
+                result = qvb.get_data_from_title(query)
                 print(result[0])
 
                 if result is not None:

@@ -27,9 +27,10 @@ class queryVectorDB():
             print(f"Input endpoint may be incorrect at endpoint: {endpoint}")
             return 
     
-    def get_data(self, query:str) -> Dict:
+    def get_data_from_title(self, query:str) -> Dict:
         """
-        Retrieve data from the weaviate schema
+        Retrieve data from the weaviate schema based on title
+        Returned data is the entire content
 
         Args:
             query (str): _description_
@@ -46,6 +47,34 @@ class queryVectorDB():
 
         result = (client.query.get("Transcriptions", ["title","id_title","text", "start_time","end_time",])
                                 .with_where(where_filter)
+                                .with_limit(2500)
+                                .do())
+        result = result['data']['Get']['Transcriptions']
+        new_result = self._create_hms_time(result)
+        return new_result
+    
+    ## TODO: Edit for natural language queries.
+    def get_data_from_query(self, query:str) -> Dict:
+        """
+        Retrieve data from the weaviate schema based on input_query
+        Input query is vectorized and searched through the schema
+
+        Args:
+            query (str): _description_
+
+        Returns:
+            Dict: _description_
+        """
+        client = self.client
+        where_filter = {
+            "path": ["title"],
+            "operator": "Equal",
+            "valueText": str(query)
+        }
+
+        result = (client.query.get("Transcriptions", ["title","id_title","text", "start_time","end_time",])
+                                .with_where(where_filter)
+                                .with_limit(2500)
                                 .do())
         result = result['data']['Get']['Transcriptions']
         new_result = self._create_hms_time(result)

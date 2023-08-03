@@ -13,9 +13,3 @@ if __name__ == '__main__':
     vb.get_file_paths(DATA_PATH)
     vb.batch_insert(embedding_api)
     print("\nBatch Insert Complete! You can now query the database!\n")
-    import pdb
-    pdb.set_trace()
-    # result = vb.client.query.get(
-    #         "Transcriptions", ["title","text", "start_time","end_time"]
-    #     ).do() # Additional parameters of probability returned
-    # print(json.dumps(result['get'], indent=4))
