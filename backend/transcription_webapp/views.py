@@ -9,9 +9,6 @@ from django.shortcuts import render
 import json
 from .query_vector_DB import queryVectorDB
 
-def index(request):
-    return render(request, 'index.html')
-
 @csrf_exempt
 def individual_transcription(request):
     """

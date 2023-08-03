@@ -1,5 +1,5 @@
-import { cardData, Card } from "./cardData";
-import { useNavigate, Link } from "react-router-dom";
+import { cardData } from "./cardData";
+import { Link } from "react-router-dom";
 
 export function Cards() {
   return (

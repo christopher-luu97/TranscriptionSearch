@@ -129,7 +129,8 @@ class vectorDB():
             embedding_api = embedding_api
         else:
             embedding_api = self.embedding_api
-        for i in range(2):#range(len(os.listdir(DATA_PATH))):
+        for i in range(len(os.listdir(DATA_PATH))-1):
+            print(f"\nInserting: {os.path.join(DATA_PATH, TRANSCRIPTS[i])}\n")
             with open(os.path.join(DATA_PATH, TRANSCRIPTS[i]), 'r') as f:
                 content = json.load(f)
                 for item in content['segments']:
