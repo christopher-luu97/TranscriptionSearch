@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Cards } from "../Cards/Cards";
 import { Search } from "../Search/Search";
 import { Header } from "../Header/Header";
 import { Footer } from "../Footer/Footer";
-import { useNavigate } from "react-router-dom";
 
 export const Main: React.FC = () => {
   return (
-    <main>
+    <main className="min-h-screen flex flex-col justify-between bg-gray-900">
       <Header />
       <div className="min-h-screen bg-gray-900">
         <div className="flex items-center justify-center">
-          <h1 className="text-5xl font-bold mb-4 text-white text-center my-10">
+          <h1 className="text-5xl font-bold mb-4 text-white text-center my-4">
             Search Your Transcripts
           </h1>
         </div>
@@ -23,6 +22,7 @@ export const Main: React.FC = () => {
           <Cards></Cards>
         </div>
       </div>
+      <div className="mb-10"></div>
       <Footer />
     </main>
   );

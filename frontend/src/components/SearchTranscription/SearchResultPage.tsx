@@ -16,7 +16,7 @@ const SearchResultPage = () => {
           Search Your Transcripts
         </h1>
         <div className="container mx-auto">
-          <div className="flex grid justify-center items-center bg-gray-800">
+          <div className="flex grid justify-center items-center bg-gray-900">
             <div className="mb-4">
               <Search />
               <div className="mb-4"></div>

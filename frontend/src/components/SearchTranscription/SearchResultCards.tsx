@@ -28,7 +28,7 @@ export function SearchResultCards({ searchData }: SearchResultCardsProps) {
   return (
     <>
       {" "}
-      <div className="grid grid-cols-1 gap-10 bg-gray-800">
+      <div className="grid grid-cols-1 gap-10 bg-gray-900">
         {searchData.map((card, index) => (
           <div
             className="flex flex-col justify-between transform transition-transform hover:scale-105 cursor-pointer bg-gray-500 rounded p-4"

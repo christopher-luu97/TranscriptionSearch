@@ -8,20 +8,24 @@ export const Search: React.FC = () => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
   };
+  const [loading, setLoading] = useState(false);
 
   const handleSearch = () => {
-    // Make an API request to your Django backend here
+    setLoading(true); // Set loading state to true
     axios
       .post(`http://127.0.0.1:8000/query_all_transcription/`, { query })
       .then((response) => {
-        // Handle the response from the backend
-        console.log(response.data.data); // Do something with the data
+        console.log(response.data.data);
         navigate("/search-results", { state: response.data });
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
+      })
+      .finally(() => {
+        setLoading(false); // Set loading state back to false when the request completes
       });
   };
+
   return (
     <div className="relative">
       <div className="flex items-center justify-center">
@@ -48,10 +52,36 @@ export const Search: React.FC = () => {
           onChange={handleInputChange}
         />
         <button
-          className="px-4 py-2 bg-blue-500 text-white rounded-md ml-2"
+          className={`px-4 py-2 rounded-md ml-2 ${
+            loading ? "bg-blue-500" : "bg-blue-600"
+          } text-white`}
           onClick={handleSearch}
+          disabled={loading}
         >
-          Search
+          {loading ? (
+            <svg
+              className="animate-spin h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              ></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647zM12 20a8 8 0 100-16 8 8 0 000 16z"
+              ></path>
+            </svg>
+          ) : (
+            "Search"
+          )}
         </button>
       </div>
     </div>

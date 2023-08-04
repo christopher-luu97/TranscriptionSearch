@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import { TranscriptionItem } from "../../common/types";
+import { Header } from "../Header/Header";
+import { Footer } from "../Footer/Footer";
 
 export function IndividualTranscription(props: TranscriptionOutputProps) {
   const { id } = useParams(); // Access the "id" parameter from the route URL
@@ -138,6 +140,7 @@ export function IndividualTranscription(props: TranscriptionOutputProps) {
 
   return (
     <main>
+      <Header />
       <div className="min-h-screen bg-gray-900">
         <div className="flex items-center justify-center">
           <h1 className="text-5xl font-bold mb-4 text-white text-center my-10">
@@ -179,6 +182,7 @@ export function IndividualTranscription(props: TranscriptionOutputProps) {
           </div>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }

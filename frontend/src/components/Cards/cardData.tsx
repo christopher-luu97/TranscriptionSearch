@@ -9,11 +9,6 @@ export interface Card {
 
 export const cardData: Card[] = [
   {
-    title: "Lecture 3: Editors (vim) (2020)",
-    image: lectureImage,
-    description: "test",
-  },
-  {
     title: "Lecture 1: Course Overview + The Shell (2020)",
     image:
       "https://drive.google.com/uc?export=view&id=1vGhiQ9cSG1e9c4uYXp6SwC71VrZHeWUE",
