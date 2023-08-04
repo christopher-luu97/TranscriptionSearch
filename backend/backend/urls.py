@@ -16,12 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from transcription_webapp.views import individual_transcription
+from transcription_webapp.views import individual_transcription, query_all_transcription
 
 router = routers.DefaultRouter()
 urlpatterns = [
     #path('admin/', admin.site.urls),
-    path('individual_transcription/', individual_transcription, name='individual_transcription'),
-
+    path('individual_transcription/', individual_transcription, name='individual_transcription'), #
+    path('query_all_transcription/', query_all_transcription, name="query_all_transcription" ) # 
     #path('', transcribe, name='transcribe'),
 ]

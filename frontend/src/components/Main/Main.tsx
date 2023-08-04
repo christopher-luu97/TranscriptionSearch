@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Cards } from "../Cards/Cards";
 import { Search } from "../Search/Search";
 import { Header } from "../Header/Header";
 import { Footer } from "../Footer/Footer";
+import { useNavigate } from "react-router-dom";
 
 export const Main: React.FC = () => {
   return (
