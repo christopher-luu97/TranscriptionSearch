@@ -1,6 +1,4 @@
 // Define the data for the cards
-import lectureImage from "../../assets/thumbnails/lectures/Lecture 1_ Course Overview + The Shell (2020).jpg";
-
 export interface Card {
   title: string;
   image: string;
@@ -10,68 +8,57 @@ export interface Card {
 export const cardData: Card[] = [
   {
     title: "Lecture 1: Course Overview + The Shell (2020)",
-    image:
-      "https://drive.google.com/uc?export=view&id=1vGhiQ9cSG1e9c4uYXp6SwC71VrZHeWUE",
+    image: "https://i.ytimg.com/vi/Z56Jmr9Z34Q/maxresdefault.jpg",
     description: "Lecture 1: Course Overview + The Shell (2020)",
   },
   {
     title: "Lecture 2: Shell Tools and Scripting (2020)",
-    image:
-      "https://drive.google.com/uc?export=view&id=1cDYbLFZIfQkPA5qVrmTyAEmxzJbIKVhB",
+    image: "https://i.ytimg.com/vi/kgII-YWo3Zw/maxresdefault.jpg",
     description: "Lecture 2: Shell Tools and Scripting (2020)",
   },
   {
     title: "Lecture 3: Editors (vim) (2020)",
-    image:
-      "https://drive.google.com/uc?export=view&id=1qUNqRMsEJqF97OZynh0meYRAdEQUXlir",
+    image: "https://i.ytimg.com/vi/a6Q8Na575qc/maxresdefault.jpg",
     description: "Lecture 3: Editors (vim) (2020)",
   },
   {
     title: "Lecture 4: Data Wrangling (2020)",
-    image:
-      "https://drive.google.com/uc?export=view&id=1S_mUX3oW7nQRgtPE1qx7OnuV5P9gU8Mo",
+    image: "https://www.youtube.com/watch?v=sz_dsktIjt4 ",
     description: "Lecture 4: Data Wrangling (2020)",
   },
   {
     title: "Lecture 5: Command-line Environment (2020)",
-    image:
-      "https://drive.google.com/uc?export=view&id=1Ku9GTVroATHFPEs6xfybMUEHGk-cc22x",
+    image: "https://i.ytimg.com/vi/e8BO_dYxk5c/maxresdefault.jpg",
     description: "Lecture 5: Command-line Environment (2020)",
   },
   {
     title: "Lecture 6: Version Control (git) (2020)",
-    image:
-      "https://drive.google.com/uc?export=view&id=19nk-ZjSVFQCJvB2lLSSnSwGi6RGxad_F",
+    image: "https://i.ytimg.com/vi/2sjqTHE0zok/maxresdefault.jpg",
     description: "Lecture 6: Version Control (git) (2020)",
   },
   {
     title: "Lecture 7: Debugging and Profiling (2020)",
-    image:
-      "https://drive.google.com/uc?export=view&id=1ACvCaDTSggvOTR83pkOqBrt54ptrjnUy",
+    image: "https://i.ytimg.com/vi/l812pUnKxME/maxresdefault.jpg",
     description: "Lecture 7: Debugging and Profiling (2020)",
   },
   {
     title: "Lecture 8: Metaprogramming (2020)",
-    image:
-      "https://drive.google.com/uc?export=view&id=1Gm8vFcTkuGX0mf1vOP4yzt8mw6TGD0fg",
+    image: "https://i.ytimg.com/vi/_Ms1Z4xfqv4/maxresdefault.jpg",
     description: "Lecture 8: Metaprogramming (2020)",
   },
   {
     title: "Lecture 9: Security and Cryptography (2020)",
-    image:
-      "https://drive.google.com/uc?export=view&id=1qieMWNFKch9quIO-v7HXEGzN3jPDOIKN",
+    image: "https://i.ytimg.com/vi/tjwobAmnKTo/maxresdefault.jpg",
     description: "Lecture 9: Security and Cryptography (2020)",
   },
   {
     title: "Lecture 10: Potpourri (2020)",
-    image:
-      "https://drive.google.com/uc?export=view&id=1KsW31_i99Fp5kx8BdlMFV-WPm8QcSfL_",
+    image: "https://i.ytimg.com/vi/JZDt-PRq0uo/maxresdefault.jpg",
     description: "Lecture 10: Potpourri (2020)",
   },
   {
     title: "Lecture 11: Q&A (2020)",
-    image:
-      "https://drive.google.com/uc?export=view&id=1-ffZiAvNlWc4nYCvWHGpYv_4xw6PhWD5",
+    image: "https://i.ytimg.com/vi/Wz50FvGG6xU/maxresdefault.jpg",
     description: "Lecture 11: Q&A (2020)",
   },
   // Add more card data as needed
