@@ -1,0 +1,4 @@
+docker build -f embedding.DOCKERFILE -t embedding_api_build:latest .
+
+Then:
+docker run -p 8200:8200 embedding_api_build:latest 
