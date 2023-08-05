@@ -23,7 +23,7 @@ export const cardData: Card[] = [
   },
   {
     title: "Lecture 4: Data Wrangling (2020)",
-    image: "https://www.youtube.com/watch?v=sz_dsktIjt4 ",
+    image: "https://i.ytimg.com/vi/sz_dsktIjt4/maxresdefault.jpg ",
     description: "Lecture 4: Data Wrangling (2020)",
   },
   {
