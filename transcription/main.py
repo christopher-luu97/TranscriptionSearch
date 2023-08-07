@@ -20,7 +20,7 @@ def main(folder_path:str, transcriber: object):
     for item in file_paths:
         if ".mp3" in item['file_location']: # Basic check for now.
             result = transcriber.process_data(item)
-            with open("/"+item['title']+".json", 'w') as fp:
+            with open(os.path.join(folder_path, item['title']+".json", 'w')) as fp:
                 json.dump(result, fp)
 
 if __name__ == "__main__":
