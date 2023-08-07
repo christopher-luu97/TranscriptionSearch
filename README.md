@@ -20,7 +20,7 @@ Inspiration for this comes from: https://www.hubermantranscripts.com/ where many
 
 <h2>System Design</h2>
 <p>This system design is based off of what has been done and what needs to be done. It includes features and how things talk to each other.</p>
-<img src="./system_design/design_v2.jpeg"/>
+<img src="./system_design/process_flow.png"/>
 
 ## Transcription Google Colab
 Use this google colab: https://colab.research.google.com/drive/14b3hoXzVUB1BwA1PLi59hpPzcPQin1l4?usp=sharing to download and transcribe videos from youtube which you can then use to populate the database with.
