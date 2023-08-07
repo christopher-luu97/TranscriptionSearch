@@ -2,4 +2,4 @@ torch
 torchvision
 git+https://github.com/m-bain/whisperx.git
 pytube
-ty_dlp
+yt_dlp
