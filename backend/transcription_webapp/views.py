@@ -1,8 +1,6 @@
 from django.http import HttpResponseBadRequest, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
-from .models import File
-from .serializers import MediaFileSerializer
 import asyncio
 import os
 from django.shortcuts import render
@@ -101,8 +99,3 @@ def query_all_transcription(request):
             return HttpResponseBadRequest("Invalid JSON data")
     else:
         return HttpResponseBadRequest("Invalid request method")
-
-
-class FileView(viewsets.ModelViewSet):
-    queryset = File.objects.all()
-    serializer_class = MediaFileSerializer

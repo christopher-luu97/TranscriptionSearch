@@ -10,3 +10,4 @@ backend/backend/config/env.json
 models/embeddings/embedding_model
 frontend/src/assets/thumbnails/lectures
 *.pyc
+/Demo_picts

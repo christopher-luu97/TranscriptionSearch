@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export function Cards() {
   return (
     <>
-      <div className="grid grid-cols-4 gap-24 bg-gray-900">
+      <div className="grid grid-cols-4 gap-28 bg-gray-900">
         {cardData.map((card, index) => (
           <Link key={index} to={`/IndividualTranscription/${card.title}`}>
             <div
