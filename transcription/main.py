@@ -4,12 +4,13 @@ import json
 from download import *
 from transcribe import Transcriber
 
-def main(folder_path:str):
+def main(folder_path:str, transcriber: object):
     """
     Transcribe a list of files
 
     Args:
         folder_path (str): folder path to where the downloaded videos are
+        transcriber (object): take in the transcriber object
     """
     file_paths = []
     for data in os.listdir(folder_path):
@@ -17,7 +18,7 @@ def main(folder_path:str):
         file_paths.append(data_ob)
 
     for item in file_paths:
-        if ".mp3" in item['title']: # Basic check for now.
+        if ".mp3" in item['file_location']: # Basic check for now.
             result = transcriber.process_data(item)
             with open("/"+item['title']+".json", 'w') as fp:
                 json.dump(result, fp)
@@ -38,7 +39,7 @@ if __name__ == "__main__":
     new_data_list = get_yt_thumbnail_link(data_list)
     download_yt_thumbnail(new_data_list, output_path)
 
-    main(output_path)
+    main(output_path, transcriber)
     print(f"\nExecution success! Transcriptions are at {output_path}\n")
 
 
