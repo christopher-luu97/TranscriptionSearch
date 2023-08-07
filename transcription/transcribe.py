@@ -35,7 +35,6 @@ class Transcriber():
 
         audio = whisperx.load_audio(audio_file)
         result = model.transcribe(audio, batch_size=batch_size)
-        print(result["segments"]) # before alignment
 
         # delete model if low on GPU resources
         # import gc; gc.collect(); torch.cuda.empty_cache(); del model
