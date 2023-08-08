@@ -24,3 +24,6 @@ Inspiration for this comes from: https://www.hubermantranscripts.com/ where many
 
 ## Transcription Google Colab
 Use this google colab: https://colab.research.google.com/drive/14b3hoXzVUB1BwA1PLi59hpPzcPQin1l4?usp=sharing to download and transcribe videos from youtube which you can then use to populate the database with.
+
+## Medium Article
+https://medium.com/@cluu.codes1337/how-i-made-a-complete-vector-search-web-application-with-weaviate-d88e3b667bb
